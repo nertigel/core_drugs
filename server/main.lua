@@ -144,9 +144,9 @@ AddEventHandler("core_drugs:sellDrugs", function(hash, _)
                         THC, CBD = v.metadata.type:sub(2, 3), v.metadata.type:sub(6, 7)
                     end
                     pay = pay + (price * v.count * (THC - CBD)/10) 
+                    ox_inventory:RemoveItem(source, drug, v.count, v.metadata, v.slot)
                     --[[print(v.name, 'slot: '..v.slot, 'metadata: '..v.metadata.type)]]
                 end
-                ox_inventory:RemoveItem(source, drug, v.count, v.metadata, v.slot)
             end
             --[[local item = Player.getInventoryItem(k)
             if item.count > 0 then
